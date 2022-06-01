@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormArray, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'nested-formarray';
+  teamForm = this.fb.group({
+    teams: this.fb.array([this.fb.control('Dream Team')])
+  });
+
+  constructor(private fb: FormBuilder) {
+  }
+
+  get teams() {
+    return this.teamForm.get('teams') as FormArray;
+  }
+
+  addTeam() {
+    this.teams.push(this.fb.control(''));
+  }
 }
