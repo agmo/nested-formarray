@@ -21,4 +21,8 @@ export class AppComponent {
   addTeam() {
     this.teams.push(this.fb.control(''));
   }
+
+  deleteTeam(index: number) {
+    this.teams.removeAt(index);
+  }
 }

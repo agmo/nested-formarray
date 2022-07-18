@@ -10,6 +10,10 @@
             <mat-label>Team</mat-label>
             <input matInput [formControlName]="i">
           </mat-form-field>
+
+          <button mat-icon-button color="primary" (click)="deleteTeam(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
         </div>
       </div>
     </form>
